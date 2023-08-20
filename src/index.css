@@ -1,0 +1,22 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.textField {
+  margin: 10px !important;
+}
+
+.icon {
+  vertical-align: middle;
+}
+
+.iconWrap {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.childrenContainer {
+  margin-left: 50px;
+}
