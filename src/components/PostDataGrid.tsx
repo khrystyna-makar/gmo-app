@@ -31,7 +31,6 @@ export default function PostDataGrid() {
     PostDataService.getAll()
       .then((response: any) => {
         setPosts(response.data);
-        console.log(response.data);
       })
       .catch((e: Error) => {
         console.log(e);

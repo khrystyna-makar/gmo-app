@@ -29,17 +29,17 @@ export default function DepartmentsTree() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>, item: IDepartment) => {
     const newList = [...list];
     let newItem = helper.search(newList, item.id);
-    if(newItem){
+    if (newItem) {
       newItem.checked = event.target.checked;
-      if(newItem.subDepartments){
+      if (newItem.subDepartments) {
         newItem.subDepartments?.forEach(x => x.checked = event.target.checked);
       }
       else {
         let parentItem = helper.search(newList, item.parentId);
-        if(parentItem?.subDepartments?.every(x => x.checked === event.target.checked)){
+        if (parentItem?.subDepartments?.every(x => x.checked === event.target.checked)) {
           parentItem.checked = event.target.checked;
-        } 
-        else if(parentItem?.subDepartments?.some(x => x.checked != parentItem?.checked)){
+        }
+        else if (parentItem?.subDepartments?.some(x => x.checked != parentItem?.checked)) {
           parentItem.checked = false;
         }
       }
@@ -62,19 +62,21 @@ export default function DepartmentsTree() {
             checked={dataItem.checked}
             indeterminate={dataItem.subDepartments?.some(x => x.checked != dataItem.checked)}
             onChange={e => handleChange(e, dataItem)}
-          />} />
+          />}
+      />
       {dataItem.expanded &&
         <div className='childrenContainer'>
           {dataItem.subDepartments?.map(item => (
-            <FormControlLabel 
-              key = {item.id}
+            <FormControlLabel
+              key={item.id}
               style={{ display: 'flex' }}
               label={item.department}
               control={
                 <Checkbox
                   checked={item.checked}
                   onChange={e => handleChange(e, item)}
-                />} />
+                />}
+            />
           ))}
         </div>
       }
