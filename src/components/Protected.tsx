@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 
 const Protected = ({ children }: any) => {
-    const isAllowed = localStorage.getItem('isAllowed');
+    const isAllowed = localStorage.getItem('isAllowed') === 'true';
     if (!isAllowed) {
         alert("You must enter all details before accessing the page.")
         return <Navigate to="/" replace />;
